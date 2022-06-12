@@ -1048,7 +1048,7 @@ public class ImportingUtilities {
                 project.update(); // update all internal models, indexes, caches, etc.
                 
                 ProjectManager.singleton.registerProject(project, pm);
-                
+                ProjectManager.singleton.ensureProjectSaved(project.id);
                 job.setProjectID(project.id);
                 job.setState("created-project");
             } else {
