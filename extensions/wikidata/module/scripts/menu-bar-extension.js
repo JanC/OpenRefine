@@ -89,7 +89,7 @@ WikibaseExporterMenuBar.checkSchemaAndExport = function (format) {
 
 //extend the column header menu
 $(function () {
-
+  // console.error("Wiki init")
   ExtensionBar.MenuItems.push(
       {
         "id": "reconcile",
@@ -99,13 +99,14 @@ $(function () {
             id: "wikidata/select-instance",
             label: $.i18n('wikibase-extension/select-wikibase-instance'),
             click: function () {
+              console.log("Wiki Select")
               WikibaseDialog.launch()
             }
           },
           {
             id: "wikidata/edit-schema",
             label: $.i18n('wikibase-extension/edit-wikibase-schema'),
-            click: function () {
+            click: function () { // thjis
               SchemaAlignment.launch(false);
             }
           },

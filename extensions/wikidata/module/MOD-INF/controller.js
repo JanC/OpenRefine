@@ -1,5 +1,5 @@
 importPackage(org.openrefine.wikidata.commands);
-
+// bundle = false;
 /*
  * Function invoked to initialize the extension.
  */
