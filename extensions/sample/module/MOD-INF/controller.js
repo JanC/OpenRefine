@@ -68,11 +68,11 @@ function process(path, request, response) {
   // Analyze path and handle this request yourself.
 
   if (path == "/" || path == "") {
-    var context = {};
-    // here's how to pass things into the .vt templates
-    context.someList = ["Superior","Michigan","Huron","Erie","Ontario"];
-    context.someString = "foo";
-    context.someInt = Packages.com.google.refine.sampleExtension.SampleUtil.stringArrayLength(context.someList);
+    // var context = {};
+    // // here's how to pass things into the .vt templates
+    // context.someList = ["Superior","Michigan","Huron","Erie","Ontario"];
+    // context.someString = "foo";
+    // context.someInt = Packages.com.google.refine.sampleExtension.SampleUtil.stringArrayLength(context.someList);
 
     send(request, response, "index.vt", context);
   }
