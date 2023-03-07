@@ -227,7 +227,7 @@ class RefineServer extends Server {
         this.setStopTimeout(30000);
 
         // Enable context autoreloading
-        if (Configurations.getBoolean("refine.autoreload", false)) {
+        if (Configurations.getBoolean("refine.autoreload",true)) {
             scanForUpdates(webapp, context);
         }
 
@@ -275,6 +275,11 @@ class RefineServer extends Server {
         scanList.add(new File(contextRoot, "WEB-INF/web.xml"));
         findFiles(".class", new File(contextRoot, "WEB-INF/classes"), scanList);
         findFiles(".jar", new File(contextRoot, "WEB-INF/lib"), scanList);
+
+        File pacRoot = new File("/Users/janchaloupecky/xworkspace/mine/openrefine-cleaner");
+        findFiles(".class", new File(pacRoot, "module/MOD-INF/classes"), scanList);
+        findFiles(".js", new File(pacRoot, "module/MOD-INF/"), scanList);
+
 
         logger.info("Starting autoreloading scanner... ");
 
@@ -497,19 +502,19 @@ class RefineClient extends JFrame implements ActionListener {
     }
 
     private void openBrowser() {
-        if (!Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-            try {
-                openBrowserFallback();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            try {
-                Desktop.getDesktop().browse(uri);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        if (!Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+//            try {
+//                openBrowserFallback();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        } else {
+//            try {
+//                Desktop.getDesktop().browse(uri);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 
     private void openBrowserFallback() throws IOException {
